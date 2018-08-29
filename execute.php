@@ -18,8 +18,28 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $text = trim($text);
 $text = strtolower($text);
-
 header("Content-Type: application/json");
-$parameters = array('chat_id' => $chatId, "text" => $text);
+
+$response = '';
+
+if(strpos($text, "/start") === 0 || $text=="ciao")
+{
+	$response = "Ciao $firstname, benvenuto nel GearBOSS-BOT!";
+	$response = "Oggi è $date , digita il comando desiderato!";
+}
+elseif($text=="random")
+{
+	$response = "risposta per random";
+}
+elseif($text=="hitech")
+{
+	$response = "risposta per hi-tech";
+}
+else
+{
+	$response = "Comando non valido!";
+}
+
+$parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
