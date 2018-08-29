@@ -25,7 +25,6 @@ $response = '';
 if(strpos($text, "/start") === 0 || $text=="ciao")
 {
 	$response = "Ciao $firstname, benvenuto nel GearBOSS-BOT!";
-	$response = "Oggi è $date , digita il comando desiderato!";
 }
 elseif($text=="random")
 {
