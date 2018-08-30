@@ -24,19 +24,19 @@ header("Content-Type: application/json");
 
 $response = '';
 
-if(strpos($text, "/start") === 0 || $text=="ciao")
+if (strpos($text, "/start") === 0 || $text=="ciao")
 {
 	$response = "Ciao $firstname, benvenuto nel GearBOSS-BOT!";
 }
-elseif (strstr($text,"random") == TRUE)
+elseif (stristr($text,"random") == TRUE)
 {
 	$response = "risposta per random";
 }
-elseif((strstr($text,"hitech") == TRUE)
+elseif (stristr($text,"hitech") == TRUE)
 {
 	$response = "risposta per hi-tech";
 }
-elseif((strstr($text,"lalla") == TRUE)
+elseif (strstr($text,"lalla") == TRUE)
 {
 	$response = "La più bella della galassia! <3 ";
 }
