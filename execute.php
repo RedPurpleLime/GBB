@@ -26,7 +26,7 @@ if(strpos($text, "/start") === 0 || $text=="ciao")
 {
 	$response = "Ciao $firstname, benvenuto nel GearBOSS-BOT!";
 }
-elseif($text=="random")
+elseif (stristr($text,"random") === TRUE)
 {
 	$response = "risposta per random";
 }
@@ -36,7 +36,7 @@ elseif($text=="hitech")
 }
 else
 {
-	$response = "Comando non valido!";
+//	$response = "Comando non valido!";
 }
 
 $parameters = array('chat_id' => $chatId, "text" => $response);
