@@ -16,8 +16,10 @@ $username = isset($message['chat']['username']) ? $message['chat']['username'] :
 $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
 
-$text = trim($text);
-$text = strtolower($text);
+$text = trim($text);  //tolgo gli spazi iniziali e finali
+$text = strtolower($text); //rendo tutto minuscolo
+//$text = (str_replace(" ", "", $text)); //elimino gli spazi
+
 header("Content-Type: application/json");
 
 $response = '';
@@ -26,13 +28,17 @@ if(strpos($text, "/start") === 0 || $text=="ciao")
 {
 	$response = "Ciao $firstname, benvenuto nel GearBOSS-BOT!";
 }
-elseif (stristr($text,"random") === TRUE)
+elseif (strstr($text,"random") == TRUE)
 {
 	$response = "risposta per random";
 }
-elseif($text=="hitech")
+elseif((strstr($text,"hitech") == TRUE)
 {
 	$response = "risposta per hi-tech";
+}
+elseif((strstr($text,"lalla") == TRUE)
+{
+	$response = "La più bella della galassia! <3 ";
 }
 else
 {
