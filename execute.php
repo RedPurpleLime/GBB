@@ -2,6 +2,17 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
+function get_tiny_url($url)  {  
+	$ch = curl_init();  
+	$timeout = 5;  
+	curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+	curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+	$data = curl_exec($ch);  
+	curl_close($ch);  
+	return $data;  
+}
+
 if(!$update)
 {
   exit;
@@ -34,7 +45,7 @@ elseif (stristr($text,"random") == TRUE)
 }
 elseif (stristr($text,"hitech") == TRUE)
 {
-	$response = "https://it.gearbest.com/graphics-tablets/pp_009566133532.html?wid=1433363&lkid=15584643";
+	$response = get_tiny_url("https://it.gearbest.com/graphics-tablets/pp_009566133532.html?wid=1433363&lkid=15584643");
 }
 elseif (strstr($text,"lalla") == TRUE)
 {
