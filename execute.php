@@ -34,7 +34,7 @@ elseif (stristr($text,"random") == TRUE)
 }
 elseif (stristr($text,"hitech") == TRUE)
 {
-	$response = "risposta per hi-tech";
+	$response = "https://it.gearbest.com/graphics-tablets/pp_009566133532.html?wid=1433363&lkid=15584643";
 }
 elseif (strstr($text,"lalla") == TRUE)
 {
